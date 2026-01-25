@@ -1,185 +1,170 @@
-================================================================================
+========
 Disnana
-================================================================================
+========
 
-日本発のオープンソースソフトウェア開発組織です。
+Disnanaチームが開発しているツールやライブラリの置き場所です。
 
-データベース操作の簡素化、防災システムの開発、開発者向けツールの提供を通じて、より良いソフトウェア開発環境の実現を目指しています。
-
-.. image:: https://img.shields.io/badge/License-MIT-blue.svg
-   :target: https://opensource.org/licenses/MIT
-   :alt: License: MIT
-
-.. image:: https://img.shields.io/badge/Language-Python-3776AB.svg
-   :target: https://www.python.org/
-   :alt: Python
-
-.. image:: https://img.shields.io/badge/Homepage-disnana.com-orange.svg
-   :target: http://disnana.com/
-   :alt: Official Homepage
+主にPythonでデータベース周りのライブラリを作っています。
 
 
-================================================================================
-主要プロジェクト
-================================================================================
+リンク
+======
 
-データベースツール
-================================================================================
+- ホームページ: `https://disnana.com/home <https://disnana.com/home>`_
+- Disnanaボット: `https://home.disnana.com <https://home.disnana.com>`_
+- GitHub Organization: `https://github.com/disnana <https://github.com/disnana>`_
+
+
+主なプロジェクト
+================
+
+データベース関連
+----------------
 
 NanaSQLite
---------------------------------------------------------------------------------
+~~~~~~~~~~
 
-**Dictライクで高速・軽量なSQLiteを利用できる汎用ライブラリ**
-
-PythonでSQLiteをより直感的に扱えるようにするライブラリです。辞書型のような操作感でデータベースを扱えます。
-
-:リポジトリ: `disnana/NanaSQLite <https://github.com/disnana/NanaSQLite>`_
-:PyPI: `nanasqlite <https://pypi.org/project/nanasqlite/>`_
-:ライセンス: MIT License
-:主要言語: Python
-:スター数: 1
+Dictみたいに使えるSQLiteラッパーライブラリです。
 
 .. code-block:: python
 
-   # 使用例
    from nanasqlite import NanaSQLite
    
-   db = NanaSQLite("database.db")
-   # 辞書のように操作可能
+   db = NanaSQLite("mydata.db")
+   db["user"] = {"name": "Nana", "age": 20}
+   print(db["user"])
+
+:リポジトリ: `https://github.com/disnana/NanaSQLite <https://github.com/disnana/NanaSQLite>`_
+:PyPI: `https://pypi.org/project/nanasqlite/ <https://pypi.org/project/nanasqlite/>`_
+:ドキュメント: `https://nanasqlite.disnana.com/ <https://nanasqlite.disnana.com/>`_
+:ライセンス: MIT License
+
+主な機能
+^^^^^^^^
+
+- 辞書型の操作感でSQLiteを扱える
+- 書き込みは自動で保存される
+- ネストした構造もそのまま保存可能
+- 暗号化やトランザクションにも対応
 
 
 DictSQLite
---------------------------------------------------------------------------------
+~~~~~~~~~~
 
-**Pythonで基本的なSQLite操作をDict型のように扱えるライブラリ**
+NanaSQLiteの前身となるライブラリです。
 
-SQLiteの操作をPythonの辞書型のように直感的に行えるライブラリです。
-
-:リポジトリ: `disnana/DictSQLite <https://github.com/disnana/DictSQLite>`_
-:ドキュメント: `リリースノート <https://disnana.github.io/DictSQLite-Release-Note/>`_
+:リポジトリ: `https://github.com/disnana/DictSQLite <https://github.com/disnana/DictSQLite>`_
+:リリースノート: `https://disnana.github.io/DictSQLite-Release-Note/ <https://disnana.github.io/DictSQLite-Release-Note/>`_
 :ライセンス: MIT License
-:主要言語: Python
-:スター数: 3
-:フォーク数: 1
 
 .. note::
-   後継プロジェクトとしてNanaSQLiteが開発されています。
+
+   新しいプロジェクトではNanaSQLiteの使用を推奨します。
 
 
 NanaSQLite-Server
---------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~
 
-**NanaSQLiteのサーバー版実装**
+NanaSQLiteをサーバーとして動かすやつです。
 
-NanaSQLiteをネットワーク経由で利用できるようにするサーバーソフトウェアです。
-
-:リポジトリ: `disnana/NanaSQLite-Server <https://github.com/disnana/NanaSQLite-Server>`_
+:リポジトリ: `https://github.com/disnana/NanaSQLite-Server <https://github.com/disnana/NanaSQLite-Server>`_
 :ライセンス: MIT License
-:主要言語: Python
-:スター数: 1
 
 
-開発者ツール
-================================================================================
+ツール系
+--------
 
 ValidKit
---------------------------------------------------------------------------------
+~~~~~~~~
 
-**バリデーション機能を提供するPythonツールキット**
+バリデーション用のツールキットです。
 
-データ検証機能を簡単に実装できるPythonライブラリです。
-
-:リポジトリ: `disnana/ValidKit <https://github.com/disnana/ValidKit>`_
+:リポジトリ: `https://github.com/disnana/ValidKit <https://github.com/disnana/ValidKit>`_
 :ライセンス: MIT License
-:主要言語: Python
 
 
 CalcX
---------------------------------------------------------------------------------
+~~~~~
 
-**Androidの電卓のように (10^100)+1-(10^100) を正確に計算できる電卓**
+``(10^100)+1-(10^100)`` を正確に計算できる電卓です。
 
-浮動小数点演算の誤差を回避し、高精度な計算を実現する電卓アプリケーションです。
+Androidの電卓みたいに浮動小数点の誤差を回避します。
 
-:リポジトリ: `disnana/CalcX <https://github.com/disnana/CalcX>`_
+:リポジトリ: `https://github.com/disnana/CalcX <https://github.com/disnana/CalcX>`_
 :ライセンス: MIT License
-:主要言語: Python
 
 
-ゲーム・アプリケーション
-================================================================================
+ゲーム
+------
 
 neuro-reversi
---------------------------------------------------------------------------------
+~~~~~~~~~~~~~
 
-**TypeScriptで開発されたリバーシゲーム**
+TypeScriptで作ったリバーシゲームです。
 
-Webブラウザで動作するリバーシ(オセロ)ゲームです。
-
-:リポジトリ: `disnana/neuro-reversi <https://github.com/disnana/neuro-reversi>`_
-:ビルド済み版: `disnana/neuro-reversi-pages <https://github.com/disnana/neuro-reversi-pages>`_
-:主要言語: TypeScript
+:リポジトリ: `https://github.com/disnana/neuro-reversi <https://github.com/disnana/neuro-reversi>`_
+:ビルド済み: `https://github.com/disnana/neuro-reversi-pages <https://github.com/disnana/neuro-reversi-pages>`_
 
 
-================================================================================
-組織情報
-================================================================================
+Webページ
+---------
 
-公式サイト
---------------------------------------------------------------------------------
+Disnana-Official-HomePage
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ホームページ: http://disnana.com/
-:GitHub: https://github.com/disnana
+公式サイトのソースコードです。
 
-
-開発方針
---------------------------------------------------------------------------------
-
-* **シンプルさ**: 複雑な操作を直感的なインターフェースで提供
-* **品質重視**: MITライセンスでのオープンソース開発
-* **実用性**: 実際の開発現場で役立つツールの提供
-* **継続的改善**: コミュニティのフィードバックを活かした開発
+:リポジトリ: `https://github.com/disnana/Disnana-Official-HomePage <https://github.com/disnana/Disnana-Official-HomePage>`_
+:公開URL: `https://disnana.com/home <https://disnana.com/home>`_
 
 
-貢献について
---------------------------------------------------------------------------------
+DictSQLite-Release-Note
+~~~~~~~~~~~~~~~~~~~~~~~
 
-各プロジェクトへの貢献を歓迎しています。Issue報告やPull Requestは各リポジトリで受け付けています。
+DictSQLiteのリリースノート用サイトです。
 
-
-ライセンス
---------------------------------------------------------------------------------
-
-特に記載がない限り、すべてのプロジェクトはMIT Licenseで公開されています。
-
-.. code-block:: text
-
-   MIT License
-   
-   詳細は各リポジトリのLICENSEファイルをご確認ください。
+:リポジトリ: `https://github.com/disnana/DictSQLite-Release-Note <https://github.com/disnana/DictSQLite-Release-Note>`_
+:公開URL: `https://disnana.github.io/DictSQLite-Release-Note/ <https://disnana.github.io/DictSQLite-Release-Note/>`_
 
 
-================================================================================
-統計情報
-================================================================================
+ライセンスと著作権
+==================
 
-:公開リポジトリ数: 9+
-:主要開発言語: Python, TypeScript, HTML
-:合計スター数: 5+
-:ライセンス: 主にMIT License
+特に記載がない限り、すべての著作権はDisnanaが保有しており、
+許可を得ない限り利用することはできません。
 
-
-================================================================================
-お問い合わせ
-================================================================================
-
-プロジェクトに関するご質問は、各リポジトリのIssueセクションにてお願いします。
+公開されているプロジェクトの多くはMIT Licenseで提供されていますが、
+各リポジトリのLICENSEファイルを必ず確認してください。
 
 
-.. note::
-   このREADMEは公開情報のみを記載しています。
-   最新の情報は公式サイトおよび各リポジトリをご確認ください。
+MIT License
+-----------
+
+MIT Licenseで公開されているプロジェクトはこちらです。
+
+- NanaSQLite
+- DictSQLite
+- NanaSQLite-Server
+- ValidKit
+- CalcX
+
+詳細は各リポジトリのLICENSEファイルをご確認ください。
 
 
-.. footer::
-   © Disnana Organization
+備考
+====
+
+.. warning::
+
+   このREADMEは公開リポジトリの情報のみ記載しています。
+   各プロジェクトの利用にあたっては、必ずライセンスを確認してください。
+   このREADMEは更新が不定期なので必ず最新の情報をご確認ください。
+
+.. tip::
+
+   バグ報告や機能要望は各リポジトリのIssueからどうぞ。
+
+
+----
+
+Copyright (c) 2024-2026 Disnana. All rights reserved.
